@@ -18,6 +18,10 @@ body {
   height: 20vmin;
 }
 
+.peach {
+  height: 40vmin;
+}
+
 .App-header {
   display: flex;
   flex-direction: column;

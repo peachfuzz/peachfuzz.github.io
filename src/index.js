@@ -1,7 +1,3 @@
-/*////////////////
-this is what it used to look like for gh-pages
-///////////////*/
-
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";

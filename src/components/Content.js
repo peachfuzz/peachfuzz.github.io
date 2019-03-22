@@ -3,27 +3,29 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  HashRouter
+  HashRouter,
+  Switch
 } from "react-router-dom";
 import Home from "./Home";
 import EuclidAlg from "./EuclidAlg";
 import EuclidAlgUgly from "./EuclidAlgUgly";
 import SteamLinks from "./StreamLinks";
+import Error from "./Error";
 import "../App.css";
 
 class Content extends Component {
   constructor(props) {
     super(props);
-    const NaviItems = [];
-    const links = ["/", "EuclidAlg"];
-    const pages = ["Home", "Euclidean Algorithm"];
-    for (let i = 0; i < links.length; i++) {
-      NaviItems.push({
-        page: pages[i],
-        link: links[i]
-      });
-    }
-    this.state = { NaviItems };
+    // const NaviItems = [];
+    // const links = ["/", "EuclidAlg"];
+    // const pages = ["Home", "Euclidean Algorithm"];
+    // for (let i = 0; i < links.length; i++) {
+    //   NaviItems.push({
+    //     page: pages[i],
+    //     link: links[i]
+    //   });
+    // }
+    // this.state = { NaviItems };
   }
 
   render() {
@@ -40,10 +42,13 @@ class Content extends Component {
             <br />
             <Link to="/SteamLinks">Apple Music and Spotify Link Generator</Link>
             <br />
-            <Route exact path="/" component={Home} />
-            <Route path="/EuclidAlg" component={EuclidAlg} />
-            <Route path="/EuclidAlgUgly" component={EuclidAlgUgly} />
-            <Route path="/SteamLinks" component={SteamLinks} />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/EuclidAlg" component={EuclidAlg} />
+              <Route path="/EuclidAlgUgly" component={EuclidAlgUgly} />
+              <Route path="/SteamLinks" component={SteamLinks} />
+              <Route path="*" component={Error} />
+            </Switch>
           </div>
         </div>
       </HashRouter>

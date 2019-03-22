@@ -11,6 +11,7 @@ body {
   min-height: 80vh;
   position: relative;
   margin: auto;
+  word-break: break-word;
 }
 
 .App-logo {

@@ -6,10 +6,8 @@ class Error extends Component {
   render() {
     return (
       <div>
-        <h1>The page {window.location.href} does not exist..</h1>
-        <p>
-          <Link to="/">Go home?</Link>
-        </p>
+        <h1>The page {window.location.href} does not exist..</h1>\
+        <Link to="/">Go home?</Link>
         <img src={peach} className="peach" alt="Princess Peach from Mario" />
       </div>
     );

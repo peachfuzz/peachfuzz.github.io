@@ -1,16 +1,24 @@
+body {
+  background-color: #282c34;
+}
 .App {
   text-align: center;
+  background-color: #282c34;
+  color: #ffffff;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  max-width: 700px;
+  min-height: 80vh;
+  position: relative;
+  margin: auto;
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+  height: 20vmin;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,8 +27,95 @@
   color: white;
 }
 
+.App-footer {
+  position: absolute;
+  height: 9rem;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+
 .App-link {
   color: #61dafb;
+}
+
+a {
+  color: #ffdab9;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  text-align: left;
+}
+
+.content {
+  padding: 20px;
+  padding-bottom: 7rem; /*footer height*/
+  position: relative;
+  min-height: 400px;
+  box-sizing: border-box; /*height includes padding*/
+}
+
+.euclid,
+.euclid-table {
+  display: block;
+  padding: 20px;
+}
+
+.small-text {
+  font-size: 9pt;
+}
+
+.social-media-links {
+  /* float: left; */
+  display: table;
+  list-style: none;
+  margin: auto;
+  padding: 0;
+  /* padding: 0 0 0 10px; */
+}
+
+.social-media-links li {
+  display: inline-block;
+  zoom: 1;
+}
+
+.icon-instagram,
+.icon-linkedin {
+  /* content: ""; */
+  padding-left: 6px;
+}
+.icon-github,
+.icon-instagram,
+.icon-linkedin {
+  height: 40px;
+}
+.me {
+  border-radius: 50%;
+  max-width: 240px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  max-width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #1f1f1f;
 }
 
 @keyframes App-logo-spin {

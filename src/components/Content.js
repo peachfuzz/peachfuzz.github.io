@@ -9,7 +9,7 @@ import {
 import Home from "./Home";
 import EuclidAlg from "./EuclidAlg";
 import EuclidAlgUgly from "./EuclidAlgUgly";
-import SteamLinks from "./StreamLinks";
+import SteamLinks from "./StreamLinks/StreamLinks";
 import Error from "./Error";
 import "../App.css";
 

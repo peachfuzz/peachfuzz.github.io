@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  HashRouter,
+  Route,
+  Link,
+  Switch
+} from "react-router-dom";
 import Home from "./Home";
 import EuclidAlg from "./EuclidAlg";
 import EuclidAlgUgly from "./EuclidAlgUgly";
@@ -14,7 +20,7 @@ class Content extends Component {
 
   render() {
     return (
-      <Router basename={process.env.PUBLIC_URL + "/"}>
+      <HashRouter basename={process.env.PUBLIC_URL + "/"}>
         <div className="content">
           <div className="inner-content">
             <h2>Personal Projects</h2>
@@ -50,7 +56,7 @@ class Content extends Component {
             </Switch>
           </div>
         </div>
-      </Router>
+      </HashRouter>
     );
   }
 }

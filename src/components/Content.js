@@ -31,19 +31,19 @@ class Content extends Component {
             <Switch>
               <Route
                 exact
-                path={process.env.PUBLIC_URL + "/"}
+                path={`${process.env.PUBLIC_URL}/`}
                 component={Home}
               />
               <Route
-                path={process.env.PUBLIC_URL + "/EuclidAlg"}
+                path={`${process.env.PUBLIC_URL}/EuclidAlg`}
                 component={EuclidAlg}
               />
               <Route
-                path={process.env.PUBLIC_URL + "/EuclidAlgUgly"}
+                path={`${process.env.PUBLIC_URL}/EuclidAlgUgly`}
                 component={EuclidAlgUgly}
               />
               <Route
-                path={process.env.PUBLIC_URL + "/StreamLinks"}
+                path={`${process.env.PUBLIC_URL}/StreamLinks`}
                 component={StreamLinks}
               />
               <Route path={process.env.PUBLIC_URL + "*"} component={Error} />

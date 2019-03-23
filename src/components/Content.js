@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Home from "./Home";
 import EuclidAlg from "./EuclidAlg";
 import EuclidAlgUgly from "./EuclidAlgUgly";
-import SteamLinks from "./StreamLinks/StreamLinks";
+import StreamLinks from "./StreamLinks/StreamLinks";
 import Error from "./Error";
 import "../App.css";
 
@@ -24,7 +24,9 @@ class Content extends Component {
             <br />
             <Link to="/EuclidAlgUgly">Euclidean Algorithm(Ugly code)</Link>
             <br />
-            <Link to="/SteamLinks">Apple Music and Spotify Link Generator</Link>
+            <Link to="/StreamLinks">
+              Apple Music and Spotify Link Generator
+            </Link>
             <br />
             <Switch>
               <Route
@@ -41,8 +43,8 @@ class Content extends Component {
                 component={EuclidAlgUgly}
               />
               <Route
-                path={process.env.PUBLIC_URL + "/SteamLinks"}
-                component={SteamLinks}
+                path={process.env.PUBLIC_URL + "/StreamLinks"}
+                component={StreamLinks}
               />
               <Route path={process.env.PUBLIC_URL + "*"} component={Error} />
             </Switch>

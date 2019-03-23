@@ -41,7 +41,7 @@ class StreamLinks extends Component {
   render() {
     return (
       <div className="home">
-        <h1>Steam links</h1>
+        <h1>Stream links</h1>
         <p>
           Have you ever wanted to send a song to someone but weren't sure if
           they had apple music or spotify? This should give you the ability to

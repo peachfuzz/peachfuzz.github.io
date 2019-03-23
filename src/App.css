@@ -71,6 +71,10 @@ ul {
   padding: 20px;
 }
 
+#euclidTable {
+  word-break: normal;
+}
+
 .small-text {
   font-size: 9pt;
 }

@@ -27,11 +27,24 @@ class Content extends Component {
             <Link to="/SteamLinks">Apple Music and Spotify Link Generator</Link>
             <br />
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/EuclidAlg" component={EuclidAlg} />
-              <Route path="/EuclidAlgUgly" component={EuclidAlgUgly} />
-              <Route path="/SteamLinks" component={SteamLinks} />
-              <Route path="*" component={Error} />
+              <Route
+                exact
+                path={process.env.PUBLIC_URL + "/"}
+                component={Home}
+              />
+              <Route
+                path={process.env.PUBLIC_URL + "/EuclidAlg"}
+                component={EuclidAlg}
+              />
+              <Route
+                path={process.env.PUBLIC_URL + "/EuclidAlgUgly"}
+                component={EuclidAlgUgly}
+              />
+              <Route
+                path={process.env.PUBLIC_URL + "/SteamLinks"}
+                component={SteamLinks}
+              />
+              <Route path={process.env.PUBLIC_URL + "*"} component={Error} />
             </Switch>
           </div>
         </div>

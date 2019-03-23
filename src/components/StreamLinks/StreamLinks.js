@@ -22,7 +22,7 @@ class StreamLinks extends Component {
       console.log("token required!");
       const CLIENT_ID = "2b99e55f6fc04b1c82063242856ab33f"; // Your client id
       // const CLIENT_SECRET = "13dc08c45b9749fb80e80d945e0951c3"; // Your secret
-      const redirect_uri = "http://localhost:3000/#/StreamLinks";
+      const redirect_uri = "https://peachfuzz.dev/StreamLinks";
 
       const url =
         "https://accounts.spotify.com/authorize" +

@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  HashRouter,
-  Switch
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Home from "./Home";
 import EuclidAlg from "./EuclidAlg";
 import EuclidAlgUgly from "./EuclidAlgUgly";
@@ -16,21 +10,11 @@ import "../App.css";
 class Content extends Component {
   constructor(props) {
     super(props);
-    // const NaviItems = [];
-    // const links = ["/", "EuclidAlg"];
-    // const pages = ["Home", "Euclidean Algorithm"];
-    // for (let i = 0; i < links.length; i++) {
-    //   NaviItems.push({
-    //     page: pages[i],
-    //     link: links[i]
-    //   });
-    // }
-    // this.state = { NaviItems };
   }
 
   render() {
     return (
-      <HashRouter>
+      <Router basename={process.env.PUBLIC_URL}>
         <div className="content">
           <div className="inner-content">
             <h2>Personal Projects</h2>
@@ -51,7 +35,7 @@ class Content extends Component {
             </Switch>
           </div>
         </div>
-      </HashRouter>
+      </Router>
     );
   }
 }

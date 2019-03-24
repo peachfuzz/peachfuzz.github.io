@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import Results from "./Results.js";
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -53,24 +53,6 @@ class Search extends Component {
       });
   }
   render() {
-    var counter = 0;
-    var items = this.state.tracks.map(ob => {
-      //find out why you have to do map here - it's a single element list containing a list with many items
-      return (
-        <ul>
-          {ob.map(track => {
-            counter++;
-            console.log(track);
-            return (
-              <li value={counter} key={counter}>
-                {track["name"]} - {track["artists"][0]["name"]},{" "}
-                {track["album"]["name"]}
-              </li>
-            );
-          })}
-        </ul>
-      );
-    });
     return (
       <div className="search">
         <p>You can now search :)</p>
@@ -82,12 +64,7 @@ class Search extends Component {
             onChange={this.handleQueryChange}
           />
           <input type="submit" value="Search" onClick={this.searchTrack} />
-          <div className="results">
-            {/* <ul> */}
-            {items}
-            {/* <img alt="album/track art" /> */}
-            {/* </ul> */}
-          </div>
+          <Results tracks={this.state.tracks} />
         </form>
       </div>
     );

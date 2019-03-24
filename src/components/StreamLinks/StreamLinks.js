@@ -45,7 +45,7 @@ class StreamLinks extends Component {
       console.log("token required!");
       const CLIENT_ID = "2b99e55f6fc04b1c82063242856ab33f"; // Your client id
       // const redirect_uri = "https://peachfuzz.dev/StreamLinks"; // to use once we get regular router working
-      const redirect_uri = window.location.href; // deployment version
+      const redirect_uri = window.location.href + "#"; // deployment version
       const url =
         "https://accounts.spotify.com/authorize" +
         "?response_type=token" +

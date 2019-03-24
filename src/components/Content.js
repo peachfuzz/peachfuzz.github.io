@@ -3,6 +3,7 @@ import {
   //BrowserRouter as Router,
   HashRouter as Router,
   Route,
+  Redirect,
   Link,
   Switch
 } from "react-router-dom";
@@ -47,6 +48,15 @@ class Content extends Component {
               <Route
                 path={`${process.env.PUBLIC_URL}/StreamLinks`}
                 component={StreamLinks}
+              />
+              <Redirect
+                from={"/access_token*"}
+                to={
+                  "/StreamLinks#" +
+                  window.location.href.substring(
+                    window.location.href.indexOf("access_token")
+                  )
+                }
               />
               <Route path={process.env.PUBLIC_URL + "*"} component={Error} />
             </Switch>

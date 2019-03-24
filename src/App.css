@@ -135,3 +135,81 @@ tr:nth-child(even) {
     transform: rotate(360deg);
   }
 }
+
+.tracklist-col {
+  /* display: flex; */
+  height: 4.56em;
+}
+
+.tracklist-col.name {
+  /* display: flex; */
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 0;
+  word-break: normal;
+  padding-right: 1px;
+  margin-right: -1px;
+}
+.tracklist-top-align {
+  margin-top: 0.7em;
+}
+.tracklist-name {
+  padding-left: 20px;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.015em;
+  color: #fff;
+  display: flex;
+}
+.ellipsis-one-line {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 1px;
+  margin-right: -1px;
+}
+
+.TrackListRow__explicit-label {
+  margin-right: 0.67em;
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.015em;
+  display: inline-block;
+  text-transform: uppercase;
+  background-color: hsla(0, 0%, 100%, 0.6);
+  color: #000;
+  border-radius: 2px;
+  padding: 0 0.3em;
+}
+
+.album-art {
+  display: left;
+}
+.track-name-wrapper,
+.second-line {
+  /* display: flex; */
+  padding: 20px;
+  /* position: relative; */
+}
+.cover-art-image.cover-art-image-loaded {
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.3, 0, 0.4, 1);
+  transition-timing-function: cubic-bezier(0.3, 0, 0.4, 1);
+  top: 0;
+  background-size: cover;
+  background-position: 50%;
+  height: 100px;
+  float: left;
+  vertical-align: top;
+}
+
+.next-line {
+  height: 100px;
+}
+
+.results {
+  margin-top: 20px;
+}

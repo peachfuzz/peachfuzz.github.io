@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {
-  BrowserRouter as Router,
-  HashRouter,
+  //BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Link,
   Switch
@@ -14,13 +14,9 @@ import Error from "./Error";
 import "../App.css";
 
 class Content extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
-      <HashRouter basename={process.env.PUBLIC_URL + "/"}>
+      <Router basename={process.env.PUBLIC_URL + "/"}>
         <div className="content">
           <div className="inner-content">
             <h2>Personal Projects</h2>
@@ -37,15 +33,15 @@ class Content extends Component {
             <Switch>
               <Route
                 exact
-                path={`${process.env.PUBLIC_URL}/`}
+                path={process.env.PUBLIC_URL + "/"}
                 component={Home}
               />
               <Route
-                path={`${process.env.PUBLIC_URL}/EuclidAlg`}
+                path={process.env.PUBLIC_URL + "/EuclidAlg"}
                 component={EuclidAlg}
               />
               <Route
-                path={`${process.env.PUBLIC_URL}/EuclidAlgUgly`}
+                path={process.env.PUBLIC_URL + "/EuclidAlgUgly"}
                 component={EuclidAlgUgly}
               />
               <Route
@@ -56,7 +52,7 @@ class Content extends Component {
             </Switch>
           </div>
         </div>
-      </HashRouter>
+      </Router>
     );
   }
 }

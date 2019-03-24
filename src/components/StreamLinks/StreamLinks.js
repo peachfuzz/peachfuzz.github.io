@@ -1,6 +1,8 @@
 //itunes api //https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/
 //https://developer.apple.com/documentation/applemusicapi
-//spotify api //GET https://api.spotify.com/v1/search
+// todo:
+// ! fix hashrouter / spotify api problem
+// ? can you just reroute from /#/access_token* to /#/StreamLinks#access_token*
 import React, { Component } from "react";
 import Search from "./Spotify/Search.js";
 
@@ -42,10 +44,8 @@ class StreamLinks extends Component {
     } else {
       console.log("token required!");
       const CLIENT_ID = "2b99e55f6fc04b1c82063242856ab33f"; // Your client id
-      // const CLIENT_SECRET = "13dc08c45b9749fb80e80d945e0951c3"; // Your secret
       // const redirect_uri = "https://peachfuzz.dev/StreamLinks"; // to use once we get regular router working
-      const redirect_uri = "https://peachfuzz.dev/#/StreamLinks"; // deployment version
-      // const redirect_uri = "http://localhost:3000/StreamLinks"; // local version
+      const redirect_uri = window.location.href; // deployment version
       const url =
         "https://accounts.spotify.com/authorize" +
         "?response_type=token" +

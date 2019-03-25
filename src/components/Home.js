@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import me from "../icons/me.png";
+import me from "../icons/me.jpg";
 
 class Home extends Component {
   render() {

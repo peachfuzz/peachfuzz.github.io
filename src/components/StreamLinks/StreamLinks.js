@@ -42,7 +42,6 @@ class StreamLinks extends Component {
     } else {
       console.log("token required!");
       const CLIENT_ID = "2b99e55f6fc04b1c82063242856ab33f"; // Your client id
-      const CLIENT_SECRET = "13dc08c45b9749fb80e80d945e0951c3";
       // const redirect_uri = "https://peachfuzz.dev/StreamLinks"; // to use once we get regular router working
       // if you want to use Client Credentials Flow, secret and backend is required
       const redirect_uri =
@@ -61,7 +60,6 @@ class StreamLinks extends Component {
       window.location = url;
     }
   }
-
   render() {
     return (
       <div className="stream-links">

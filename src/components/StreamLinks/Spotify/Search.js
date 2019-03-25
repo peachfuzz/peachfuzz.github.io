@@ -6,7 +6,6 @@ class Search extends Component {
     super(props);
     this.state = {
       query: "",
-      result: false,
       albums: [],
       artists: [],
       playlists: [],
@@ -15,47 +14,71 @@ class Search extends Component {
     this.searchTrack = this.searchTrack.bind(this);
     this.handleQueryChange = this.handleQueryChange.bind(this);
   }
-  handleQueryChange(event) {
-    this.setState({
-      query: event.target.value
-    });
-  }
-  searchTrack(e) {
+  handleQueryChange(e) {
     e.preventDefault();
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
-    var q = this.state.query.replace(" ", "%20");
-    q = q.replace("%20%20", "%20");
-    var url =
-      "https://api.spotify.com/v1/search?q=" +
-      q +
-      "&type=album,artist,playlist,track&limit=10";
-    this.setState({ result: false });
-    axios
-      .get(url, {
-        headers: {
-          Authorization: `Bearer ${this.props.token}`
-        }
-      })
-      .then(response => {
-        var data = response.data;
-        this.setState({
-          result: true,
-          albums: [data.albums.items],
-          artists: [data.artists.imems],
-          playlists: [data.playlists.items],
-          tracks: [data.tracks.items]
-        });
-      })
-      .catch(error => {
-        console.log("ERROR!");
-        this.setState({ result: false });
-      });
+    var q = "";
+    this.setState(
+      {
+        query: e.target.value
+      },
+      () => (
+        (q = this.state.query),
+        (q = q.replace(" ", "%20").replace("%20%20", "%20")),
+        this.searchTrack(q)
+      )
+    );
   }
+  searchTrack(q) {
+    if (q !== "") {
+      var url =
+        "https://api.spotify.com/v1/search?q=" +
+        q +
+        "&type=album,artist,playlist,track&limit=10";
+      axios
+        .get(url, {
+          headers: {
+            Authorization: `Bearer ${this.props.token}`
+          }
+        })
+        .then(response => {
+          var data = response.data;
+          this.setState({
+            albums: [data.albums.items],
+            artists: [data.artists.imems],
+            playlists: [data.playlists.items],
+            tracks: [data.tracks.items]
+          });
+        })
+        .catch(error => {
+          console.log("ERROR!");
+          this.setState({
+            albums: [],
+            artists: [],
+            playlists: [],
+            tracks: []
+          });
+        });
+    } else {
+      this.setState({
+        albums: [],
+        artists: [],
+        playlists: [],
+        tracks: []
+      });
+    }
+  }
+
   render() {
     return (
       <div className="search">
-        <p>You can now search :)</p>
+        <p>
+          You can now search by simply typing{" "}
+          <span aria-label="fire" role="img">
+            🔥
+          </span>
+        </p>
         <form>
           <input
             type="text"
@@ -63,8 +86,12 @@ class Search extends Component {
             value={this.state.query}
             onChange={this.handleQueryChange}
           />
-          <input type="submit" value="Search" onClick={this.searchTrack} />
-          <Results tracks={this.state.tracks} />
+          <Results
+            albums={this.state.albums}
+            artists={this.state.artists}
+            playlists={this.state.playlists}
+            tracks={this.state.tracks}
+          />
         </form>
       </div>
     );

@@ -26,44 +26,41 @@ class Results extends Component {
                     alt={track["name"] + "'s album art"}
                   />
                 </a>
-                <div
-                  className="tracklist-name ellipsis-one-line"
-                  value={counter}
-                  key={counter}
-                >
-                  <a
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    href={track["external_urls"]["spotify"]}
-                  >
+                <div className="tracklist-name" value={counter} key={counter}>
+                  <div className="ellipsis-one-line">
+                    <a
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      href={track["external_urls"]["spotify"]}
+                    >
+                      <span
+                        className="TrackListRow__artists ellipsis-one-line"
+                        dir="auto"
+                      >
+                        {track["name"]}
+                        {track["explicit"] === true ? (
+                          <span className="TrackListRow__explicit-label">
+                            Explicit
+                          </span>
+                        ) : (
+                          <span />
+                        )}
+                      </span>
+                    </a>
+                  </div>
+                  <div className="ellipsis-one-line">
                     <span
                       className="TrackListRow__artists ellipsis-one-line"
                       dir="auto"
                     >
-                      {track["name"]}
-                      {track["explicit"] === true ? (
-                        <span className="TrackListRow__explicit-label">
-                          Explicit
-                        </span>
-                      ) : (
-                        <span />
-                      )}
-                    </span>
-                  </a>
-                </div>
-                <div className="tracklist-name ellipsis-one-line">
-                  <span
-                    className="TrackListRow__artists ellipsis-one-line"
-                    dir="auto"
-                  >
-                    <a
-                      rel="noopener noreferrer"
-                      target="_blank"
-                      href={track["artists"][0]["external_urls"]["spotify"]}
-                    >
-                      {track["artists"][0]["name"]}
-                    </a>
-                    {/* if we ever care to show all artists
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href={track["artists"][0]["external_urls"]["spotify"]}
+                      >
+                        {track["artists"][0]["name"]}
+                      </a>
+                      {/* if we ever care to show all artists
                     {artists.map(items => {
                       return (
                         <a
@@ -73,16 +70,17 @@ class Results extends Component {
                         </a>
                       );
                     })} */}
-                  </span>
-                </div>
-                <div className="tracklist-name ellipsis-one-line">
-                  <a
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    href={track["album"]["external_urls"]["spotify"]}
-                  >
-                    {track["album"]["name"]}
-                  </a>
+                    </span>
+                  </div>
+                  <div className="ellipsis-one-line">
+                    <a
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      href={track["album"]["external_urls"]["spotify"]}
+                    >
+                      {track["album"]["name"]}
+                    </a>
+                  </div>
                 </div>
                 <br />
               </div>

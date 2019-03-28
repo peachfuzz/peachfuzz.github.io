@@ -18,16 +18,14 @@ class Search extends Component {
     e.preventDefault();
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
-    var q = "";
     this.setState(
       {
         query: e.target.value
       },
-      () => (
-        (q = this.state.query),
-        (q = q.replace(" ", "%20").replace("%20%20", "%20")),
-        this.searchTrack(q)
-      )
+      () =>
+        this.searchTrack(
+          this.state.query.replace(" ", "%20").replace("%20%20", "%20")
+        )
     );
   }
   searchTrack(q) {

@@ -99,6 +99,7 @@ class EuclidAlg extends Component {
             min={0}
             className="center"
           />
+          <br />
           <NumericInput
             id="second"
             text="Enter another number.."

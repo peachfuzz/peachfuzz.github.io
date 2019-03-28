@@ -94,20 +94,18 @@ class Search extends Component {
             🔥
           </span>
         </p>
-        <form>
-          <input
-            type="text"
-            placeholder="eg: Kendrick Lamar"
-            value={this.state.query}
-            onChange={this.handleQueryChange}
-          />
-          <Results
-            albums={this.state.albums}
-            artists={this.state.artists}
-            playlists={this.state.playlists}
-            tracks={this.state.tracks}
-          />
-        </form>
+        <input
+          type="text"
+          placeholder="eg: Kendrick Lamar"
+          value={this.state.query}
+          onChange={this.handleQueryChange}
+        />
+        <Results
+          albums={this.state.albums}
+          artists={this.state.artists}
+          playlists={this.state.playlists}
+          tracks={this.state.tracks}
+        />
       </div>
     );
   }

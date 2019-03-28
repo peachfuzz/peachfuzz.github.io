@@ -58,6 +58,7 @@ class EuclidTable extends Component {
     }
     return (
       <div className="euclid-table">
+        {this.props.test}
         {gcd}
         {gcm}
         <Table

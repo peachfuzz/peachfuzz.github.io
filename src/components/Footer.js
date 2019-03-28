@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
-import github from "../icons/icon-github.png";
-import instagram from "../icons/icon-instagram.png";
-import linkedin from "../icons/icon-linkedin.png";
+import { IoLogoInstagram, IoLogoLinkedin, IoLogoGithub } from "react-icons/io";
 
 class Footer extends Component {
   render() {
@@ -12,20 +10,25 @@ class Footer extends Component {
         <ul className="social-media-links">
           <li>
             <a
-              href="https://github.com/peachfuzz"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={github} alt="Github" className="icon-github" />
-            </a>
-          </li>
-          <li>
-            <a
               href="https://www.instagram.com/somemehican"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={instagram} alt="Instagram" className="icon-instagram" />
+              <IoLogoInstagram
+                alt="Instagram"
+                className="icon-instagram"
+                size={50}
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/peachfuzz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cont"
+            >
+              <IoLogoGithub alt="Github" className="icon-github" size={50} />
             </a>
           </li>
           <li>
@@ -34,7 +37,11 @@ class Footer extends Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={linkedin} alt="LinkedIn" className="icon-linkedin" />
+              <IoLogoLinkedin
+                alt="LinkedIn"
+                className="icon-linkedin"
+                size={50}
+              />
             </a>
           </li>
         </ul>

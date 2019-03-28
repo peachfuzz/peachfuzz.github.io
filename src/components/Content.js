@@ -8,8 +8,8 @@ import {
   Switch
 } from "react-router-dom";
 import Home from "./Home";
-import EuclidAlg from "./EuclidAlg";
-import EuclidAlgUgly from "./EuclidAlgUgly";
+import EuclidAlg from "./Euclid/EuclidAlg";
+import EuclidAlgUgly from "./Euclid/EuclidAlgUgly";
 import StreamLinks from "./StreamLinks/StreamLinks";
 import Error from "./Error";
 import "../App.css";

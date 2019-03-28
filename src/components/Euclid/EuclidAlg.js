@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import EuclidTable from "./EuclidTable";
-import { NumericInput, Button, Checkbox } from "@blueprintjs/core";
+import {
+  NumericInput,
+  Button,
+  Checkbox,
+  Divider,
+  Icon
+} from "@blueprintjs/core";
+import { IoIosCalculator } from "react-icons/io";
 class EuclidAlg extends Component {
   constructor() {
     super(); //necessary for constructor
@@ -78,6 +85,7 @@ class EuclidAlg extends Component {
     return (
       <div className="euclid">
         <h1>Euclidean Algorithm</h1>
+        <IoIosCalculator alt="Calculator" className="icon-calc" size={50} />
         <p className="small-text">
           note: if you don't enter a number, the default values for both numbers
           are 1
@@ -88,8 +96,7 @@ class EuclidAlg extends Component {
             label="Calculate Least Common Multiple"
             id="gcm"
           />
-          <br />
-          <br />
+
           <NumericInput
             id="first"
             text="Enter a number.."
@@ -99,7 +106,7 @@ class EuclidAlg extends Component {
             min={0}
             className="center"
           />
-          <br />
+          <p />
           <NumericInput
             id="second"
             text="Enter another number.."
@@ -109,14 +116,15 @@ class EuclidAlg extends Component {
             min={0}
             className="center"
           />
-          <br />
+          <p />
           <Button
             type="submit"
             text="Greatest Common Divisor"
             onClick={this.calcEuclid}
           />
         </form>
-        <br />
+        <p />
+        <Divider />
         <EuclidTable
           firstNum={this.state.firstNum}
           secondNum={this.state.secondNum}
@@ -124,8 +132,10 @@ class EuclidAlg extends Component {
           gcm={this.state.gcm}
           quotients={this.state.quotients}
           remainders={this.state.remainders}
+          test={5}
         />
-        <br />
+        <Divider />
+        <p />
         <p>
           Learn more about the{" "}
           <a
@@ -143,7 +153,7 @@ class EuclidAlg extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            the code
+            the code <Icon icon="code" />
           </a>
         </p>
       </div>

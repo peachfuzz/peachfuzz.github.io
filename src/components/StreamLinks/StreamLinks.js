@@ -4,6 +4,8 @@
 // ! https://stackoverflow.com/questions/28389699/access-control-allow-origin-denied-spotify-api
 import React, { Component } from "react";
 import Search from "./Spotify/Search.js";
+import { IoIosMusicalNotes } from "react-icons/io";
+
 class StreamLinks extends Component {
   constructor(props) {
     super(props);
@@ -64,6 +66,7 @@ class StreamLinks extends Component {
     return (
       <div className="stream-links">
         <h1>Stream links</h1>
+        <IoIosMusicalNotes alt="Music note" className="icon-music" size={50} />
         <p>
           Have you ever wanted to send a song to someone but weren't sure if
           they had apple music or spotify? This should give you the ability to

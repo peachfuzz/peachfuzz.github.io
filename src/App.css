@@ -99,15 +99,12 @@ ul {
   zoom: 1;
 }
 
-.icon-instagram,
-.icon-linkedin {
-  /* content: ""; */
-  padding-left: 6px;
-}
 .icon-github,
 .icon-instagram,
 .icon-linkedin {
-  height: 40px;
+  display: table-cell;
+  padding-left: 3px;
+  padding-right: 3px;
 }
 .me {
   border-radius: 50%;
@@ -159,16 +156,16 @@ tr:nth-child(even) {
   margin-top: 0.7em;
 }
 .tracklist-name {
-  padding-left: 20px;
   font-size: 16px;
   line-height: 22px;
   letter-spacing: 0.015em;
   color: #fff;
-  float: left;
   display: inline-block;
+  width: 520px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .ellipsis-one-line {
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-right: -1px;
@@ -208,9 +205,10 @@ tr:nth-child(even) {
   top: 0;
   background-size: cover;
   background-position: 50%;
-  height: 100px;
+  width: 140px;
   float: left;
   vertical-align: top;
+  padding-right: 20px;
 }
 
 .next-line {
@@ -220,6 +218,25 @@ tr:nth-child(even) {
 
 .results {
   margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 .center {

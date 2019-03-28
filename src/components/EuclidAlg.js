@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Column, Table, Cell } from "@blueprintjs/table";
-
+import EuclidTable from "./EuclidTable";
+import { NumericInput, Button, Checkbox } from "@blueprintjs/core";
 class EuclidAlg extends Component {
   constructor() {
     super(); //necessary for constructor
@@ -10,8 +10,7 @@ class EuclidAlg extends Component {
       gcd: 1,
       gcm: 0,
       quotients: [],
-      remainders: [],
-      i: 0
+      remainders: []
     };
     this.calcEuclid = this.calcEuclid.bind(this); //for making functions to call other functions outside of this component
     this.calcGcm = this.calcGcm.bind(this);
@@ -75,61 +74,7 @@ class EuclidAlg extends Component {
       this.calcGcm();
     }
   }
-  renderCellQ = rowIndex => {
-    return <Cell key={rowIndex}>{this.state.quotients[rowIndex]}</Cell>;
-  };
-
-  renderCellR = rowIndex => {
-    return <Cell key={rowIndex}>{this.state.remainders[rowIndex]}</Cell>;
-  };
   render() {
-    var gcd, gcm;
-    const renderCellQ = rowIndex => {
-      return <Cell key={rowIndex}>{this.state.quotients[rowIndex]}</Cell>;
-    };
-
-    const renderCellR = rowIndex => {
-      return <Cell key={rowIndex}>{this.state.remainders[rowIndex]}</Cell>;
-    };
-    if (
-      this.state.quotients.length !== 0 ||
-      this.state.remainders.length !== 0
-    ) {
-      if (this.state.gcm !== 0) {
-        if (this.state.firstNum === this.state.secondNum) {
-          gcm = (
-            <p>
-              The Least Common Multiple for numbers {this.state.firstNum} and{" "}
-              {this.state.secondNum} is {this.state.firstNum}
-            </p>
-          );
-        } else {
-          gcm = (
-            <p>
-              The Least Common Multiple for numbers {this.state.firstNum} and{" "}
-              {this.state.secondNum} is {this.state.gcm}
-            </p>
-          );
-        }
-      }
-
-      if (this.state.firstNum === this.state.secondNum) {
-        gcd = (
-          <p>
-            The Greatest Common Divisor for the numbers {this.state.firstNum}{" "}
-            and {this.state.secondNum} is 1
-          </p>
-        );
-      } else {
-        gcd = (
-          <p>
-            The Greatest Common Divisor for the numbers {this.state.firstNum}{" "}
-            and {this.state.secondNum} is {this.state.gcd}
-          </p>
-        );
-      }
-    }
-
     return (
       <div className="euclid">
         <h1>Euclidean Algorithm</h1>
@@ -138,33 +83,47 @@ class EuclidAlg extends Component {
           are 1
         </p>
         <form onSubmit={this.calcEuclid}>
-          <input type="checkbox" name="gcm" value="gcm" id="gcm" />
-          <label htmlFor="gcm">Calculate Least Common Multiple</label>
+          <Checkbox
+            htmlFor="gcm"
+            label="Calculate Least Common Multiple"
+            id="gcm"
+          />
           <br />
           <br />
-          <input id="first" type="number" />
+          <NumericInput
+            id="first"
+            text="Enter a number.."
+            type="number"
+            small={true}
+            leftIcon="numerical"
+            min={0}
+            className="center"
+          />
+          <NumericInput
+            id="second"
+            text="Enter another number.."
+            type="number"
+            small={true}
+            leftIcon="numerical"
+            min={0}
+            className="center"
+          />
           <br />
-          <input id="second" type="number" />
-          <br />
-          <input
+          <Button
             type="submit"
-            value="Greatest Common Divisor"
+            text="Greatest Common Divisor"
             onClick={this.calcEuclid}
           />
-          {/* <EuclidTable ref={this.euclidTable} first={this.state.first} second={this.state.second}/> */}
         </form>
         <br />
-        {gcd}
-        {gcm}
-        <Table
-          className="euclidTable"
-          defaultRowHeight={40}
-          defaultColumnWidth={90}
-          numRows={this.state.quotients.length}
-        >
-          <Column key="Q" name="Q" cellRenderer={renderCellQ} />
-          <Column key="R" name="R" cellRenderer={renderCellR} />
-        </Table>
+        <EuclidTable
+          firstNum={this.state.firstNum}
+          secondNum={this.state.secondNum}
+          gcd={this.state.gcd}
+          gcm={this.state.gcm}
+          quotients={this.state.quotients}
+          remainders={this.state.remainders}
+        />
         <br />
         <p>
           Learn more about the{" "}

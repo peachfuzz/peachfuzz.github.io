@@ -1,3 +1,6 @@
+@import "~@blueprintjs/core/lib/css/blueprint.css";
+@import "~@blueprintjs/table/lib/css/table.css";
+
 body {
   background-color: #282c34;
 }
@@ -71,8 +74,12 @@ ul {
   padding: 20px;
 }
 
-#euclidTable {
+#euclidTable,
+.euclidTable {
   word-break: normal;
+  max-width: 210px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .small-text {

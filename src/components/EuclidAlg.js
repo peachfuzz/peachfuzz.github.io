@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Column, Table, Cell } from "@blueprintjs/table";
 
 class EuclidAlg extends Component {
   constructor() {
@@ -9,7 +10,8 @@ class EuclidAlg extends Component {
       gcd: 1,
       gcm: 0,
       quotients: [],
-      remainders: []
+      remainders: [],
+      i: 0
     };
     this.calcEuclid = this.calcEuclid.bind(this); //for making functions to call other functions outside of this component
     this.calcGcm = this.calcGcm.bind(this);
@@ -73,22 +75,26 @@ class EuclidAlg extends Component {
       this.calcGcm();
     }
   }
+  renderCellQ = rowIndex => {
+    return <Cell key={rowIndex}>{this.state.quotients[rowIndex]}</Cell>;
+  };
 
+  renderCellR = rowIndex => {
+    return <Cell key={rowIndex}>{this.state.remainders[rowIndex]}</Cell>;
+  };
   render() {
-    var listItems, gcd, gcm;
+    var gcd, gcm;
+    const renderCellQ = rowIndex => {
+      return <Cell key={rowIndex}>{this.state.quotients[rowIndex]}</Cell>;
+    };
+
+    const renderCellR = rowIndex => {
+      return <Cell key={rowIndex}>{this.state.remainders[rowIndex]}</Cell>;
+    };
     if (
       this.state.quotients.length !== 0 ||
       this.state.remainders.length !== 0
     ) {
-      listItems = this.state.quotients.map((quotient, index) => (
-        <tr>
-          <td key={index.toString()}>{index}</td>
-          <td key={quotient.toString()}>{quotient}</td>
-          <td key={this.state.remainders[index].toString()}>
-            {this.state.remainders[index]}
-          </td>
-        </tr>
-      ));
       if (this.state.gcm !== 0) {
         if (this.state.firstNum === this.state.secondNum) {
           gcm = (
@@ -133,7 +139,7 @@ class EuclidAlg extends Component {
         </p>
         <form onSubmit={this.calcEuclid}>
           <input type="checkbox" name="gcm" value="gcm" id="gcm" />
-          <label for="gcm">Calculate Least Common Multiple</label>
+          <label htmlFor="gcm">Calculate Least Common Multiple</label>
           <br />
           <br />
           <input id="first" type="number" />
@@ -150,16 +156,15 @@ class EuclidAlg extends Component {
         <br />
         {gcd}
         {gcm}
-        <table id="euclidTable">
-          <thead>
-            <tr>
-              <th>Index</th>
-              <th>Quotient</th>
-              <th>Remainder</th>
-            </tr>
-          </thead>
-          <tbody>{listItems}</tbody>
-        </table>
+        <Table
+          className="euclidTable"
+          defaultRowHeight={40}
+          defaultColumnWidth={90}
+          numRows={this.state.quotients.length}
+        >
+          <Column key="Q" name="Q" cellRenderer={renderCellQ} />
+          <Column key="R" name="R" cellRenderer={renderCellR} />
+        </Table>
         <br />
         <p>
           Learn more about the{" "}

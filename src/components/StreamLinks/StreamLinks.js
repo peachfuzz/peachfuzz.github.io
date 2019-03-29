@@ -5,6 +5,7 @@
 import React, { Component } from "react";
 import Search from "./Spotify/Search.js";
 import { IoIosMusicalNotes } from "react-icons/io";
+import { FaSpotify } from "react-icons/fa";
 import { Button } from "@blueprintjs/core";
 
 class StreamLinks extends Component {
@@ -73,6 +74,7 @@ class StreamLinks extends Component {
         <Button
           type="submit"
           text="Login to Spotify"
+          rightIcon={<FaSpotify />}
           intent="success"
           onClick={this.handleLogin}
         />

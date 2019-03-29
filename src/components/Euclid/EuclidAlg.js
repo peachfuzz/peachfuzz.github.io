@@ -96,13 +96,12 @@ class EuclidAlg extends Component {
             label="Calculate Least Common Multiple"
             id="gcm"
           />
-
           <NumericInput
             id="first"
             text="Enter a number.."
             type="number"
             leftIcon="numerical"
-            min={0}
+            min={1}
             className="center"
           />
           <p />
@@ -111,7 +110,7 @@ class EuclidAlg extends Component {
             text="Enter another number.."
             type="number"
             leftIcon="numerical"
-            min={0}
+            min={1}
             className="center"
           />
           <p />
@@ -130,7 +129,6 @@ class EuclidAlg extends Component {
           gcm={this.state.gcm}
           quotients={this.state.quotients}
           remainders={this.state.remainders}
-          test={5}
         />
         <Divider />
         <p />

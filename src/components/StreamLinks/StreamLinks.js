@@ -5,6 +5,7 @@
 import React, { Component } from "react";
 import Search from "./Spotify/Search.js";
 import { IoIosMusicalNotes } from "react-icons/io";
+import { Button } from "@blueprintjs/core";
 
 class StreamLinks extends Component {
   constructor(props) {
@@ -12,11 +13,11 @@ class StreamLinks extends Component {
     this.state = {
       token: ""
     };
-
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleRedirect = this.handleRedirect.bind(this);
   }
-
-  componentDidMount() {
+  //handles the redirect from spotify
+  handleRedirect() {
     var access_token = window.location.href;
 
     if (access_token.includes("access_token")) {
@@ -36,31 +37,27 @@ class StreamLinks extends Component {
       });
     }
   }
+  componentDidMount() {
+    this.handleRedirect();
+  }
 
   handleLogin() {
-    if (this.state.token !== "") {
-      this.setState({ loggedIn: true });
-      console.log("logged in!");
-    } else {
-      console.log("token required!");
-      const CLIENT_ID = "2b99e55f6fc04b1c82063242856ab33f"; // Your client id
-      // const redirect_uri = "https://peachfuzz.dev/StreamLinks"; // to use once we get regular router working
-      // if you want to use Client Credentials Flow, secret and backend is required
-      const redirect_uri =
-        window.location.protocol +
-        "//" +
-        window.location.host +
-        "/#/StreamLinks#";
-      // "http://" + window.location.hostname.toString() + "/#/StreamLinks#"; // deployment version
-      const url =
-        "https://accounts.spotify.com/authorize" +
-        "?response_type=token" +
-        "&client_id=" +
-        encodeURIComponent(CLIENT_ID) +
-        "&redirect_uri=" +
-        encodeURIComponent(redirect_uri);
-      window.location = url;
-    }
+    const CLIENT_ID = "2b99e55f6fc04b1c82063242856ab33f"; // Your client id
+    // const redirect_uri = "https://peachfuzz.dev/StreamLinks"; // to use once we get regular router working
+    // if you want to use Client Credentials Flow, secret and backend is required
+    const redirect_uri =
+      window.location.protocol +
+      "//" +
+      window.location.host +
+      "/#/StreamLinks#";
+    const url =
+      "https://accounts.spotify.com/authorize" +
+      "?response_type=token" +
+      "&client_id=" +
+      encodeURIComponent(CLIENT_ID) +
+      "&redirect_uri=" +
+      encodeURIComponent(redirect_uri);
+    window.location = url;
   }
   render() {
     return (
@@ -73,15 +70,17 @@ class StreamLinks extends Component {
           create links for both apple music and spotify.
         </p>
         <br />
-        <input
+        <Button
           type="submit"
-          value="Login to Spotify"
+          text="Login to Spotify"
+          intent="success"
           onClick={this.handleLogin}
         />
         {this.state.token ? (
           <Search token={this.state.token} />
         ) : (
           <p>
+            <br />
             you need to login first to search{" "}
             <span role="img" aria-label="grimmacing">
               😬

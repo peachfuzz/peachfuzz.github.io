@@ -101,7 +101,6 @@ class EuclidAlg extends Component {
             id="first"
             text="Enter a number.."
             type="number"
-            small={true}
             leftIcon="numerical"
             min={0}
             className="center"
@@ -111,7 +110,6 @@ class EuclidAlg extends Component {
             id="second"
             text="Enter another number.."
             type="number"
-            small={true}
             leftIcon="numerical"
             min={0}
             className="center"

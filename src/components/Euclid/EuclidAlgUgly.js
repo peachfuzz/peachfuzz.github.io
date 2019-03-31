@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-// import EuclidTable from './EuclidTable';
-
 class EuclidAlgUgly extends Component {
   constructor() {
     super(); //necessary for constructor
@@ -12,7 +10,6 @@ class EuclidAlgUgly extends Component {
     };
     this.submitNums = this.submitNums.bind(this); //for making functions
     this.calcEuclid = this.calcEuclid.bind(this);
-    //this.euclidTable = React.createRef(); //to call other functions outside of this component
   }
 
   submitNums() {

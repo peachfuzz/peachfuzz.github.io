@@ -17,12 +17,12 @@ class Albums extends Component {
                     <a
                       rel="noopener noreferrer"
                       target="_blank"
-                      href={album["external_urls"]["spotify"]}
+                      href={album.external_urls.spotify}
                     >
                       <img
-                        src={album["images"][0]["url"]}
+                        src={album.images[1].url}
                         className="cover-art-image"
-                        alt={album["name"] + "'s album art"}
+                        alt={album.name + "'s album art"}
                       />
                     </a>
                   </div>
@@ -31,10 +31,10 @@ class Albums extends Component {
                       <a
                         rel="noopener noreferrer"
                         target="_blank"
-                        href={album["external_urls"]["spotify"]}
+                        href={album.external_urls.spotify}
                       >
                         <span className="ellipsis-one-line" dir="auto">
-                          {album["name"]}
+                          {album.name}
                         </span>
                       </a>
                     </div>
@@ -43,15 +43,15 @@ class Albums extends Component {
                         <a
                           rel="noopener noreferrer"
                           target="_blank"
-                          href={album["artists"][0]["external_urls"]["spotify"]}
+                          href={album.artists[0].external_urls.spotify}
                         >
-                          {album["artists"][0]["name"]}
+                          {album.artists[0].name}
                         </a>
                         {/* if we ever care to show all artists
                           {artists.map(items => {
                             return (
-                              <a rel="noopener noreferrer" target="_blank" href={album["artists"][0]["external_urls"]["spotify"]}>
-                                {album["artists"][0]["name"] + ", "}
+                              <a rel="noopener noreferrer" target="_blank" href={album.artists[0].external_urls.spotify}>
+                                {album.artists[0].name + ", "}
                               </a>
                             );
                           })} */}
@@ -61,9 +61,9 @@ class Albums extends Component {
                       <a
                         rel="noopener noreferrer"
                         target="_blank"
-                        href={album["external_urls"]["spotify"]}
+                        href={album.external_urls.spotify}
                       >
-                        {album["name"]}
+                        {album.name}
                       </a>
                     </div>
                   </div>

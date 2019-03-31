@@ -17,20 +17,20 @@ class Artists extends Component {
                     <a
                       rel="noopener noreferrer"
                       target="_blank"
-                      href={artist["external_urls"]["spotify"]}
+                      href={artist.external_urls.spotify}
                     >
-                      {artist.images[0] ? (
+                      {artist.images[1] ? (
                         <img
-                          src={artist.images[0]["url"]}
+                          src={artist.images[1].url}
                           className="cover-art-image"
-                          alt={artist["name"] + "'s picture"}
+                          alt={artist.name + "'s picture"}
                         />
                       ) : (
                         <Icon
                           icon="mugshot"
                           className="cover-art-image"
                           alt={
-                            artist["name"] +
+                            artist.name +
                             " doesn't have a picture, using a default image"
                           }
                           iconSize={100}
@@ -43,10 +43,10 @@ class Artists extends Component {
                       <a
                         rel="noopener noreferrer"
                         target="_blank"
-                        href={artist["external_urls"]["spotify"]}
+                        href={artist.external_urls.spotify}
                       >
                         <span className="ellipsis-one-line" dir="auto">
-                          {artist["name"]}
+                          {artist.name}
                         </span>
                       </a>
                     </div>

@@ -64,7 +64,7 @@ ul {
 
 .content {
   padding: 20px;
-  padding-bottom: 7rem; /*footer height*/
+  margin-bottom: 7rem; /*footer height*/
   position: relative;
   min-height: 400px;
   box-sizing: border-box; /*height includes padding*/

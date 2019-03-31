@@ -6,7 +6,7 @@ import { H4, Divider } from "@blueprintjs/core";
 class Footer extends Component {
   render() {
     return (
-      <footer className="App-footer">
+      <footer className="App-footer top">
         <Divider />
         <H4>Connect With me</H4>
         <ul className="social-media-links">

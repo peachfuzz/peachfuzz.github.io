@@ -1,20 +1,19 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Tabs, Tab } from "@blueprintjs/core";
+import { Tabs, Tab, InputGroup, NonIdealState } from "@blueprintjs/core";
 import Albums from "./Results/Albums";
 import Artists from "./Results/Artists";
 import Playlists from "./Results/Playlists";
 import Tracks from "./Results/Tracks";
-import { InputGroup } from "@blueprintjs/core";
 class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
       query: "",
-      albums: [],
-      artists: [],
-      playlists: [],
-      tracks: []
+      albums: {},
+      artists: {},
+      playlists: {},
+      tracks: {}
     };
     this.searchTrack = this.searchTrack.bind(this);
     this.handleQueryChange = this.handleQueryChange.bind(this);
@@ -48,10 +47,10 @@ class Search extends Component {
         .then(response => {
           var data = response.data;
           this.setState({
-            albums: [data.albums.items],
-            artists: [data.artists.items],
-            playlists: [data.playlists.items],
-            tracks: [data.tracks.items]
+            albums: data.albums.items,
+            artists: data.artists.items,
+            playlists: data.playlists.items,
+            tracks: data.tracks.items
           });
           var loc = window.location.href; // adding query string, idk if it's even worth it
           if (loc.indexOf("&search=") > -1) {
@@ -67,18 +66,18 @@ class Search extends Component {
         .catch(error => {
           console.log("ERROR!");
           this.setState({
-            albums: [],
-            artists: [],
-            playlists: [],
-            tracks: []
+            albums: {},
+            artists: {},
+            playlists: {},
+            tracks: {}
           });
         });
     } else {
       this.setState({
-        albums: [],
-        artists: [],
-        playlists: [],
-        tracks: []
+        albums: {},
+        artists: {},
+        playlists: {},
+        tracks: {}
       });
     }
   }
@@ -111,22 +110,62 @@ class Search extends Component {
           <Tab
             id="albums"
             title="Albums"
-            panel={<Albums albums={this.state.albums} />}
+            panel={
+              this.state.albums.length ? (
+                <Albums albums={this.state.albums} />
+              ) : (
+                <NonIdealState
+                  icon="search"
+                  title="No albums found"
+                  description="Try searching again"
+                />
+              )
+            }
           />
           <Tab
             id="artists"
             title="Artists"
-            panel={<Artists artists={this.state.artists} />}
+            panel={
+              this.state.artists.length ? (
+                <Artists artists={this.state.artists} />
+              ) : (
+                <NonIdealState
+                  icon="search"
+                  title="No artists found"
+                  description="Try searching again"
+                />
+              )
+            }
           />
           <Tab
             id="playlists"
             title="Playlists"
-            panel={<Playlists playlists={this.state.playlists} />}
+            panel={
+              this.state.playlists.length ? (
+                <Playlists playlists={this.state.playlists} />
+              ) : (
+                <NonIdealState
+                  icon="search"
+                  title="No playlists found"
+                  description="Try searching again"
+                />
+              )
+            }
           />
           <Tab
             id="tracks"
             title="Tracks"
-            panel={<Tracks tracks={this.state.tracks} />}
+            panel={
+              this.state.tracks.length ? (
+                <Tracks tracks={this.state.tracks} />
+              ) : (
+                <NonIdealState
+                  icon="search"
+                  title="No tracks found"
+                  description="Try searching again"
+                />
+              )
+            }
           />
         </Tabs>
       </div>

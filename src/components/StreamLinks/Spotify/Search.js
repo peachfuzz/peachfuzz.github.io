@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import Results from "./Results/Results.js";
 import { Tabs, Tab } from "@blueprintjs/core";
 import Albums from "./Results/Albums";
 import Artists from "./Results/Artists";

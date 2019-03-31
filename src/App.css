@@ -70,9 +70,16 @@ ul {
   box-sizing: border-box; /*height includes padding*/
 }
 
+.top {
+  margin-top: 10px;
+}
+
 .euclid,
 .euclid-table {
   display: block;
+}
+
+.euclid-table {
   padding: 20px;
 }
 

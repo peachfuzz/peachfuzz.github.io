@@ -5,7 +5,8 @@ import {
   Button,
   Checkbox,
   Divider,
-  Icon
+  Icon,
+  H1
 } from "@blueprintjs/core";
 import { IoIosCalculator } from "react-icons/io";
 class EuclidAlg extends Component {
@@ -83,8 +84,8 @@ class EuclidAlg extends Component {
   }
   render() {
     return (
-      <div className="euclid">
-        <h1>Euclidean Algorithm</h1>
+      <div className="euclid top">
+        <H1>Euclidean Algorithm</H1>
         <IoIosCalculator alt="Calculator" className="icon-calc" size={50} />
         <p className="small-text">
           note: if you don't enter a number, the default values for both numbers

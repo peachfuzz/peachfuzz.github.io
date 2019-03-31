@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import "../App.css";
 import { IoLogoInstagram, IoLogoLinkedin, IoLogoGithub } from "react-icons/io";
+import { H4 } from "@blueprintjs/core";
 
 class Footer extends Component {
   render() {
     return (
       <footer className="App-footer">
-        <h4>Connect With me</h4>
+        <H4>Connect With me</H4>
         <ul className="social-media-links">
           <li>
             <a

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  //BrowserRouter as Router,
   HashRouter as Router,
   Route,
   Redirect,
@@ -13,6 +12,7 @@ import EuclidAlgUgly from "./Euclid/EuclidAlgUgly";
 import StreamLinks from "./StreamLinks/StreamLinks";
 import Error from "./Error";
 import "../App.css";
+import { H2, Divider } from "@blueprintjs/core";
 
 class Content extends Component {
   render() {
@@ -20,7 +20,7 @@ class Content extends Component {
       <Router basename={process.env.PUBLIC_URL + "/"}>
         <div className="content">
           <div className="inner-content">
-            <h2>Personal Projects</h2>
+            <H2>Personal Projects</H2>
             <Link to="/">Home</Link>
             <br />
             <Link to="/EuclidAlg">Euclidean Algorithm</Link>
@@ -31,6 +31,8 @@ class Content extends Component {
               Apple Music and Spotify Link Generator
             </Link>
             <br />
+            <br />
+            <Divider />
             <Switch>
               <Route
                 exact

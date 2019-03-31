@@ -6,7 +6,7 @@ import React, { Component } from "react";
 import Search from "./Spotify/Search.js";
 import { IoIosMusicalNotes } from "react-icons/io";
 import { FaSpotify } from "react-icons/fa";
-import { Button } from "@blueprintjs/core";
+import { Button, H1 } from "@blueprintjs/core";
 
 class StreamLinks extends Component {
   constructor(props) {
@@ -62,8 +62,8 @@ class StreamLinks extends Component {
   }
   render() {
     return (
-      <div className="stream-links">
-        <h1>Stream links</h1>
+      <div className="stream-links top">
+        <H1>Stream links</H1>
         <IoIosMusicalNotes alt="Music note" className="icon-music" size={50} />
         <p>
           Have you ever wanted to send a song to someone but weren't sure if

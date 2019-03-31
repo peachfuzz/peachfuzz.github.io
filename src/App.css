@@ -163,12 +163,10 @@ tr:nth-child(even) {
   display: inline-block;
   width: 520px;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 .ellipsis-one-line {
   justify-content: flex-start;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: pre-wrap;
   margin-right: -1px;
   word-wrap: normal;
   text-align: left;
@@ -206,7 +204,6 @@ tr:nth-child(even) {
   background-size: cover;
   background-position: 50%;
   width: 140px;
-  float: left;
   vertical-align: top;
   padding-right: 20px;
   padding-bottom: 5px;
@@ -228,7 +225,7 @@ tr:nth-child(even) {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-
+  flex-flow: row wrap;
   -webkit-flex-flow: row wrap;
   flex-direction: row;
   flex-wrap: wrap;
@@ -237,6 +234,9 @@ tr:nth-child(even) {
 @media screen and (max-width: 699px) {
   .cover-art-image {
     padding-right: 0;
+    width: 200px;
+    display: flex;
+    justify-content: center;
   }
   .tracklist-name {
     justify-content: center;

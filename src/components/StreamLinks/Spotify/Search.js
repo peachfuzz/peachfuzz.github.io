@@ -53,7 +53,6 @@ class Search extends Component {
             playlists: [data.playlists.items],
             tracks: [data.tracks.items]
           });
-          console.log(data.playlists.items);
           var loc = window.location.href; // adding query string, idk if it's even worth it
           if (loc.indexOf("&search=") > -1) {
             window.location.href =

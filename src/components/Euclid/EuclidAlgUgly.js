@@ -25,8 +25,6 @@ class EuclidAlgUgly extends Component {
       index: this.state.index + 1
     });
 
-    // console.log("submitNums called");
-    //this.euclidTable.current.getLcd(); //calling functions outside of this component
     this.calcEuclid();
   }
 
@@ -44,17 +42,17 @@ class EuclidAlgUgly extends Component {
     var thead = document.createElement("THEAD");
     var trh = document.createElement("TR");
     var th = document.createElement("Th");
-    var text = document.createTextNode("k");
+    var text = document.createTextNode("Index");
     th.appendChild(text);
     trh.appendChild(th);
 
     th = document.createElement("Th");
-    text = document.createTextNode("q");
+    text = document.createTextNode("Quotient");
     th.appendChild(text);
     trh.appendChild(th);
 
     th = document.createElement("Th");
-    text = document.createTextNode("r");
+    text = document.createTextNode("Remainder");
     th.appendChild(text);
     trh.appendChild(th);
     thead.appendChild(trh);
@@ -123,16 +121,7 @@ class EuclidAlgUgly extends Component {
             value="Greatest Common Divisor"
             onClick={this.submitNums}
           />
-          <div id="euclid-table">
-            {/* <thead>
-                <tr>
-                    <th>Index</th>
-                    <th>Quotient</th>
-                    <th>Remainder</th>
-                </tr>
-            </thead>
-             */}
-          </div>
+          <div id="euclid-table" />
           <a
             href="https://github.com/peach-fuzz/garden/blob/master/src/components/EuclidAlgUgly.js"
             target="_blank"
@@ -140,7 +129,6 @@ class EuclidAlgUgly extends Component {
           >
             Take a look at the code
           </a>
-          {/* <EuclidTable ref={this.euclidTable} first={this.state.first} second={this.state.second}/> */}
         </form>
       </div>
     );

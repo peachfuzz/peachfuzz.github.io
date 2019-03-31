@@ -41,9 +41,7 @@ class Tracks extends Component {
                     </div>
                     {track.explicit === true ? (
                       <div className="ellipsis-one-line">
-                        <span className="TrackListRow__explicit-label">
-                          Explicit
-                        </span>
+                        <span className="explicit-label">Explicit</span>
                       </div>
                     ) : null}
 

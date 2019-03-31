@@ -172,7 +172,7 @@ tr:nth-child(even) {
   text-align: left;
 }
 
-.TrackListRow__explicit-label {
+.explicit-label {
   margin-right: 0.67em;
   font-size: 11px;
   line-height: 16px;
@@ -183,7 +183,6 @@ tr:nth-child(even) {
   color: #000;
   border-radius: 2px;
   padding: 0 0.3em;
-  margin-left: 3px;
 }
 
 .album-art {

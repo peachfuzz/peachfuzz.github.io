@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Results from "./Results.js";
-import { Divider, InputGroup } from "@blueprintjs/core";
+// import Results from "./Results/Results.js";
+import { Tabs, Tab } from "@blueprintjs/core";
+import Albums from "./Results/Albums";
+import Artists from "./Results/Artists";
+import Playlists from "./Results/Playlists";
+import Tracks from "./Results/Tracks";
+import { InputGroup } from "@blueprintjs/core";
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -45,10 +50,11 @@ class Search extends Component {
           var data = response.data;
           this.setState({
             albums: [data.albums.items],
-            artists: [data.artists.imems],
+            artists: [data.artists.items],
             playlists: [data.playlists.items],
             tracks: [data.tracks.items]
           });
+          console.log(data.playlists.items);
           var loc = window.location.href; // adding query string, idk if it's even worth it
           if (loc.indexOf("&search=") > -1) {
             window.location.href =
@@ -101,17 +107,30 @@ class Search extends Component {
           value={this.state.query}
           onChange={this.handleQueryChange}
           leftIcon="music"
-          className="center w-300px"
+          className="w-300px center"
         />
-        <br />
-        <br />
-        <Divider />
-        <Results
-          albums={this.state.albums}
-          artists={this.state.artists}
-          playlists={this.state.playlists}
-          tracks={this.state.tracks}
-        />
+        <Tabs defaultSelectedTabId="tracks">
+          <Tab
+            id="albums"
+            title="Albums"
+            panel={<Albums albums={this.state.albums} />}
+          />
+          <Tab
+            id="artists"
+            title="Artists"
+            panel={<Artists artists={this.state.artists} />}
+          />
+          <Tab
+            id="playlists"
+            title="Playlists"
+            panel={<Playlists playlists={this.state.playlists} />}
+          />
+          <Tab
+            id="tracks"
+            title="Tracks"
+            panel={<Tracks tracks={this.state.tracks} />}
+          />
+        </Tabs>
       </div>
     );
   }

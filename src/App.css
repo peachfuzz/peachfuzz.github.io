@@ -235,6 +235,9 @@ tr:nth-child(even) {
   justify-content: space-around;
 }
 @media screen and (max-width: 699px) {
+  .cover-art-image {
+    padding-right: 0;
+  }
   .tracklist-name {
     justify-content: center;
   }

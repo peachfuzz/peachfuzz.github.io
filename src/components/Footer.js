@@ -47,7 +47,11 @@ class Footer extends Component {
         </ul>
         <p className="small-text">
           This website was made possible with{" "}
-          <a href="reactjs.org" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             React
           </a>{" "}
           and{" "}

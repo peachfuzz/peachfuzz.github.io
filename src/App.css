@@ -195,7 +195,7 @@ tr:nth-child(even) {
 .second-line {
   padding: 20px;
 }
-.cover-art-image.cover-art-image-loaded {
+.cover-art-image {
   -webkit-transition-property: opacity;
   transition-property: opacity;
   -webkit-transition-duration: 0.3s;
@@ -209,6 +209,7 @@ tr:nth-child(even) {
   float: left;
   vertical-align: top;
   padding-right: 20px;
+  padding-bottom: 5px;
 }
 
 .next-line {
@@ -251,7 +252,8 @@ tr:nth-child(even) {
   width: 300px;
 }
 
-.center {
+.center,
+.bp3-tab-list {
   margin: auto;
   text-align: center;
   display: flex;

@@ -282,3 +282,7 @@ tr:nth-child(even) {
 .search {
   margin-top: 10px;
 }
+
+.bp3-divider {
+  width: 100%;
+}

@@ -6,7 +6,7 @@ import React, { Component } from "react";
 import Search from "./Spotify/Search.js";
 import { IoIosMusicalNotes } from "react-icons/io";
 import { FaSpotify } from "react-icons/fa";
-import { Button, H1 } from "@blueprintjs/core";
+import { Button, H1, Divider } from "@blueprintjs/core";
 
 class StreamLinks extends Component {
   constructor(props) {
@@ -70,6 +70,12 @@ class StreamLinks extends Component {
           they had apple music or spotify? This should give you the ability to
           create links for both apple music and spotify.
         </p>
+        <div className="top">
+          <p>
+            Search without login{" "}
+            <a href="https://applesandspots.herokuapp.com/">here</a>
+          </p>
+        </div>
         <br />
         <Button
           type="submit"

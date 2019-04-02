@@ -10,7 +10,7 @@ class App extends Component {
     FocusStyleManager.onlyShowFocusOnTabs();
 
     return (
-      <div className="App bp3-dark bp3-text-large">
+      <div className="App bp3-dark bp3-text-large w-100">
         <Header />
         <Content />
         <Footer />

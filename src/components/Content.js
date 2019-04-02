@@ -18,7 +18,7 @@ class Content extends Component {
   render() {
     return (
       <Router basename={process.env.PUBLIC_URL + "/"}>
-        <div className="content">
+        <div className="content w-100">
           <div className="inner-content">
             <H2>Personal Projects</H2>
             <Link to="/">Home</Link>
